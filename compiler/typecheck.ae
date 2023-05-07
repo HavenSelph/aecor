@@ -534,7 +534,7 @@ def TypeChecker::check_expression(&this, node: &AST, hint: &Type): &Type {
                     .error(Error::new(etype.span, "Invalid type"))
                 }
             } else if node.type == ASTType::IntLiteral {
-                etype = if hint? and hint.is_integer() {
+                etype = if hint? and (hint.is_integer() or hint.is_float()) {
                     yield hint
                 } else {
                     yield Type::new(BaseType::I32, node.span)

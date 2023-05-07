@@ -4367,7 +4367,7 @@ Type *TypeChecker__check_expression(TypeChecker *this, AST *node, Type *hint) {
         } 
       }  else       if (node->type == ASTType__IntLiteral) {
         etype = ({ Type *__yield_0;
-  if ((((bool)hint) && Type__is_integer(hint))) {
+  if ((((bool)hint) && (Type__is_integer(hint) || Type__is_float(hint)))) {
     __yield_0 = hint;
   }  else {
     __yield_0 = Type__new(BaseType__I32, node->span);
